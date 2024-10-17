@@ -1,13 +1,9 @@
 import './App.css'
-import Square from './components/Square'
+import Board from './components/Square';
+
 
 function App() {
-
-  return (
-    <>
-     <Square/>
-    </>
-  )
+  return <Board/>
 }
 
-export default App
+export default App;
