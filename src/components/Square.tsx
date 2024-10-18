@@ -6,32 +6,37 @@ import { useState } from "react";
 export default function Board() {
 
   const [squares, setSquares] = useState(Array(9).fill(null));
+
+  function handleClick() {
+    // const nextSquares = squares.slice();
+    // console.log(squares.slice());
+    // nextSquares[0] = "X";
+    // setSquares(nextSquares);
+  }
     return( 
     <div className="flex justify-center items-center h-screen">
     <div>
     <div className={squareparent}>
-        <Square value={s[0]}/>
-        <Square value={squares[1]}/>
-        <Square value={squares[2]}/>
+        <Square value={squares[0]}  onSquareClick={handleClick} />
+        <Square value={squares[1]}  onSquareClick={handleClick} />
+        <Square value={squares[2]}   onSquareClick={handleClick} />
       </div>
       <div className={squareparent}>
-        <Square value={squares[3]}/>
-        <Square value={squares[4]}/>
-        <Square value={squares[5]}/>
+        <Square value={squares[3]}  onSquareClick={handleClick} />
+        <Square value={squares[4]}  onSquareClick={handleClick} />
+        <Square value={squares[5]}  onSquareClick={handleClick} />
       </div>
       <div className={squareparent}>
-        <Square value={squares[6]}/>
-        <Square value={squares[7]}/>
-        <Square value={squares[8]}/>
+        <Square value={squares[6]}  onSquareClick={handleClick} />
+        <Square value={squares[7]}  onSquareClick={handleClick} />
+        <Square value={squares[8]}  onSquareClick={handleClick} />
       </div>
     </div>
     </div>
     )
   }
 
-  export function Square({value}:{value: string | null}) {
+  export function Square({value,onSquareClick }:{value: string | null, onSquareClick: () => void}) {
 
-    return <button className={singleSquare}
-  
-    >{value}</button>
+    return <button className={singleSquare} onClick={onSquareClick}>{value}</button>
   }
